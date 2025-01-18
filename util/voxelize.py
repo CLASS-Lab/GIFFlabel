@@ -53,10 +53,10 @@ def voxelize(coord, voxel_size=0.05, hash_type='fnv', mode=0):
         idx_start = np.cumsum(np.insert(count, 0, 0)[0:-1])
         idx_select = idx_start# + np.random.randint(0, count.max(), count.size) % count
         # idx_unique = idx_sort[idx_select]
-        sorted_idx = np.zeros(key.shape[0]).astype(np.int)
+        sorted_idx = np.zeros(key.shape[0]).astype(np.int32)
         sorted_idx[idx_start] = 1
         sorted_idx = np.cumsum(sorted_idx) - 1
-        idx_recon = np.zeros(key.shape[0]).astype(np.int)
+        idx_recon = np.zeros(key.shape[0]).astype(np.int32)
         idx_recon[idx_sort] = sorted_idx
         return idx_recon
 

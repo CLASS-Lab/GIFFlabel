@@ -1,3 +1,20 @@
+
+# GIFF (RAL2025)
+Generate LiDAR data labels for the Boreas dataset using the SphereFormer model[\[Paper\]](https://arxiv.org/pdf/2303.12766.pdf).
+## Validation
+For validation, you need to modify the `.yaml` config file. (1) fill in the `weight` with the path of model weight (`.pth` file); (2) set `val` to `True`; (3) for testing-time augmentation, set `use_tta` to `True` and set `vote_num` accordingly. After that, run the following command. 
+```
+python predict.py --config [YOUR_CONFIG_PATH]
+```
+
+## Pre-trained Models
+
+
+| dataset | Val mIoU (tta) | Val mIoU | mIoU_close | mIoU_medium | mIoU_distant |  Download  |
+|---------------|:----:|:----:|:----:|:----:|:----:|:-----------:|
+| [nuScenes](config/nuscenes/nuscenes_unet32_spherical_transformer.yaml) | 79.5 | 78.4 | 80.8 | 60.8 | 30.4 | [Model Weight](https://mycuhk-my.sharepoint.com/:u:/g/personal/1155154502_link_cuhk_edu_hk/Ebj08nZvE5lPpRn1ALgkcKwBjEQ5lrQFhx-yR2cbi9Cy-A?e=D3N3ge) |
+| [SemanticKITTI](config/semantic_kitti/semantic_kitti_unet32_spherical_transformer.yaml) | 69.0 | 67.8 | 68.6 | 60.4 | 17.8 | [Model Weight](https://mycuhk-my.sharepoint.com/:u:/g/personal/1155154502_link_cuhk_edu_hk/EXsr5RdFzd9Lj7_T8L0dCagBZCDmbe5DtcZ8ipf1CfC58w?e=KxGpLV) |
+
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/spherical-transformer-for-lidar-based-3d/3d-semantic-segmentation-on-semantickitti)](https://paperswithcode.com/sota/3d-semantic-segmentation-on-semantickitti?p=spherical-transformer-for-lidar-based-3d)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/spherical-transformer-for-lidar-based-3d/lidar-semantic-segmentation-on-nuscenes)](https://paperswithcode.com/sota/lidar-semantic-segmentation-on-nuscenes?p=spherical-transformer-for-lidar-based-3d)
 
